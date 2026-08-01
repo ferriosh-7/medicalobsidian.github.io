@@ -203,7 +203,7 @@
   .pillars-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
   .pillar{
     position:relative;aspect-ratio:1/1;background:var(--ivory);overflow:hidden;
-    padding:28px;display:flex;flex-direction:column;justify-content:space-between;
+    padding:28px;display:flex;flex-direction:column;
     border-top:2px solid transparent;
     transition:background .4s ease, border-color .4s ease, transform .4s ease;
   }
@@ -214,7 +214,7 @@
     font-size:clamp(56px,6.4vw,92px);color:var(--ink);opacity:.05;line-height:1;
     z-index:0;pointer-events:none;
   }
-  .pillar-top{position:relative;z-index:2;}
+  .pillar-top{position:relative;z-index:2;margin-bottom:32px;}
   .pillar .icon{width:26px;height:26px;color:var(--brass);transition:transform .4s ease;}
   .pillar:hover .icon{transform:rotate(-8deg) scale(1.08);}
   .pillar-text{position:relative;z-index:2;}
@@ -295,6 +295,12 @@
   }
   .step:hover .step-num{color:var(--ink);}
   .step-body{padding-top:66px;}
+  .step:first-child .step-num::before{
+    content:'';position:absolute;right:100%;top:50%;width:20px;height:1px;
+    background:var(--brass);margin-right:0;
+    transform:translateY(-50%) scaleX(0);transform-origin:right;transition:transform .8s ease;
+  }
+  .steps-row.is-visible .step:first-child .step-num::before{transform:translateY(-50%) scaleX(1);}
   .step h3{font-size:18px;font-weight:500;margin-bottom:10px;}
   .step p{font-size:14px;color:rgba(35,35,35,0.66);}
   .steps-cta{margin-top:70px;text-align:center;}
@@ -323,6 +329,8 @@
   .footer-col.contact li{display:flex;gap:10px;align-items:flex-start;}
   .footer-col.contact svg{width:15px;height:15px;flex-shrink:0;margin-top:2px;color:var(--brass-light);}
   .footer-col .addr{font-size:14px;color:rgba(255,255,255,0.82);line-height:1.6;margin-bottom:16px;}
+  .footer-col .addr a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s ease, color .3s ease;}
+  .footer-col .addr a:hover{color:var(--brass-light);border-bottom-color:var(--brass-light);}
   .footer-col .note{font-size:11.5px;font-weight:700;letter-spacing:0.03em;color:rgba(255,255,255,0.82);margin-bottom:14px;text-transform:uppercase;}
   .footer-col .hours-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
   .footer-col .hours{font-size:13px;color:rgba(255,255,255,0.55);}
@@ -353,6 +361,7 @@
     .steps-row{flex-wrap:wrap;row-gap:50px;column-gap:40px;}
     .step{flex:1 1 calc(50% - 20px);}
     .step-connector{display:none;}
+    .step:first-child .step-num::before{display:none;}
     .faq-grid{grid-template-columns:1fr;}
     .footer-top{grid-template-columns:1fr 1fr;gap:40px;}
     section{padding:80px 0;}
@@ -735,7 +744,7 @@
       <div class="footer-col">
         <h4>Bodega / Pickup</h4>
         <p class="note">BODEGA EXCLUSIVA PARA ENTREGA DE PEDIDOS CONFIRMADOS.</p>
-        <p class="addr">Simón Bolívar 510, Col. Algarín<br>Alcaldía Cuauhtémoc, 06880<br>Ciudad de México, CDMX</p>
+        <p class="addr"><a href="https://maps.app.goo.gl/J4vpaKEMR2ZJrvdT9" target="_blank" rel="noopener">Simón Bolívar 510, Col. Algarín<br>Alcaldía Cuauhtémoc, 06880<br>Ciudad de México, CDMX</a></p>
         <p class="hours-label">Horario de la bodega</p>
         <p class="hours"><strong>Lunes a viernes</strong> · 10:00–18:30<br><strong>Sábados</strong> · 10:00–14:30</p>
       </div>
